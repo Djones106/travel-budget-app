@@ -64,18 +64,18 @@ input[type=number] {
 
 }
 
-.budget-header .balance{
+.budget-header .goal{
     margin-top: 45px;
     margin-left: 20px;
 }
 
-.budget-header .balance .title{
+.budget-header .goal .title{
     color: #FFF;
     font-size: 1em;
     font-family: 'Persephone';
 }
 
-.budget-header .balance .value{
+.budget-header .goal .value{
     color: #FFF;
     font-size: 2em;
     margin-top: 10px;
