@@ -27,6 +27,7 @@ const incomeAmount = document.getElementById("income-amount-input");
 let ENTRY_LIST = [];
 let balance = 0, income = 0, outcome = 0;
 
+
 const DELETE = "delete", EDIT = "edit";
 
 //Event Listeners
@@ -79,9 +80,7 @@ addExpense.addEventListener("click", function(){
     clearInput ([expenseTitle, expenseAmount]);
 })
 
-incomeList.addEventListener("click", deleteOrEdit);
-expenseList.addEventListener("click", deleteOrEdit);
-allList.addEventListener("click", deleteOrEdit);
+
 
 //Helpers
 function show(element){
@@ -124,16 +123,7 @@ function clearElement(elements){
     })
 }
 
-//Showing list elements
-function showEntry (list, type, title, amount, id){
-    const entry = `<li id = "${id}" class = "${type}">
-                        <div class = "entry'>${title}: $${amount}</div>
-                        <div id = "edit"></div>
-                        <div id = "delete"><d=/div>
-                        </li>`
-    const position = "afterbegin";
-    list.insertAdjacentHTML(position, entry);
-}
+
 // Updating balance calculations
 function updateUI(){
     income = calculateTotal("income", ENTRY_LIST);
@@ -150,18 +140,31 @@ function updateUI(){
 
     clearElement([incomeList, expenseList, allList]);
 
-
+    //the issue
     ENTRY_LIST.forEach(entry, index => {
         if (entry.type == "income"){
-            showEntry (incomeList, entry.type, entry.title, entry.amount, index);
+            showEntry(incomeList, entry.type, entry.title, entry.amount, index);
         }else if (entry.type == "expense"){
             showEntry(expenseList, entry.type, entry.title, entry.amount, index);
         }
-        showEntry(allList, entry.type, entry.title, entry.amount, index);
+            showEntry(allList, entry.type, entry.title, entry.amount, index);
     });
    
     updateChart (income, outcome);
-    } 
+
+    localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST));
+} 
+
+//Showing list elements
+function showEntry (list, type, title, amount, id){
+    const entry = `<li id = "${id}" class = "${type}">
+                        <div class = "entry'>${title}: $${amount}</div>
+                        <div id = "edit"></div>
+                        <div id = "delete"></div>
+                        </li>`
+    const position = "afterbegin";
+    list.insertAdjacentHTML(position, entry);
+}
 
 // Delete or Edit
 
