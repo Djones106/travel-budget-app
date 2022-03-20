@@ -1,7 +1,8 @@
 # travel-budget-app
  CodeLouisville Project - Travel budgeting app 
-Base code of the app is from @Code Explained
-https://youtu.be/SQbCwfGC7EM
+Base code of the app is from @CodeExplained
+
+Main goal of the code is to help when planning trips - used as a quick reference of your budget and travel costs.
 
 Additional features
  - Percentage of budget goal saved
