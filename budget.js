@@ -141,7 +141,7 @@ function updateUI(){
     clearElement([incomeList, expenseList, allList]);
 
     //the issue
-    ENTRY_LIST.forEach(entry, index => {
+    ENTRY_LIST.forEach((entry, index) => {
         if (entry.type == "income"){
             showEntry(incomeList, entry.type, entry.title, entry.amount, index);
         }else if (entry.type == "expense"){
@@ -158,7 +158,7 @@ function updateUI(){
 //Showing list elements
 function showEntry (list, type, title, amount, id){
     const entry = `<li id = "${id}" class = "${type}">
-                        <div class = "entry'>${title}: $${amount}</div>
+                        <div class = "entry">${title}: $${amount}</div>
                         <div id = "edit"></div>
                         <div id = "delete"></div>
                         </li>`
