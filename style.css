@@ -326,7 +326,7 @@ input[type=number] {
     height: 20px;
     right: 20px;
     cursor: pointer;
-    background-image: url('icon/trash.png');
+    background-image: url("icon/trash.png");
     background-size: 20px 20px;
     background-repeat: no-repeat;
 }

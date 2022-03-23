@@ -24,10 +24,11 @@ const incomeTitle = document.getElementById("income-title-input");
 const incomeAmount = document.getElementById("income-amount-input");
 
 // Variables
-let ENTRY_LIST = [];
+let ENTRY_LIST;
 let balance = 0, income = 0, outcome = 0;
 
-
+// Look for saved date in local storage
+ENTRY_LIST =  JSON.parse(localStorage.getItem("entry_list")) || [];
 const DELETE = "delete", EDIT = "edit";
 
 //Event Listeners
@@ -152,7 +153,7 @@ function updateUI(){
    
     updateChart (income, outcome);
 
-    localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST));
+   
 } 
 
 //Showing list elements
