@@ -71,7 +71,7 @@ input[type=number] {
 
 .budget-header .balance .title{
     color: #FFF;
-    font-size: 1em;
+    font-size: 2em;
     font-family: 'Persephone';
 }
 
@@ -86,15 +86,15 @@ input[type=number] {
     display: block;
     width: 310px;
     margin: 35px auto 0;
-    line-height: 1.7em;
+    line-height: 2em;
     text-align: center;
     
 }
 
 .budget-header .account .income, .chart, .outcome{
-    height: 50px;
+    height: 65px;
     display: inline-block;
-    width: 100px;
+    width: 200px;
     vertical-align: middle;
 }
 
@@ -129,7 +129,7 @@ input[type=number] {
 .budget-dashboard .dash-title{
     display: inline-block;
     color: #1a0034;
-    font-size: 1.7em;
+    font-size: 2em;
     margin-left: 20px;
     margin-top: 30px;
     font-family: 'Persephone';
@@ -368,7 +368,7 @@ input[type=number] {
     width : 110px;
     padding-left: 10px;
     font-size: 1.2em;
-    font-family: 'Gilroy';
+    font-family: 'Wanderlust';
     margin: 5px;
     margin-left: -10px;
     border-radius: 0 10px 10px 0;
@@ -431,4 +431,50 @@ input[type=number] {
     background-image: url("icon/delete.png");
     background-size: 20px 20px;
     background-repeat: no-repeat;
+}
+
+/* /////// MEDIA QUERIES //////// */
+
+@media screen and (min-width: 600px){
+    .budget-dashboard{
+        display: block;
+        width: 560px;
+        height: 670px;
+
+    }
+    .budget-container{
+        position: absolute;
+        width: 560px;
+        height: 780px;
+
+
+    } 
+    .budget-dashboard #income #outcome .input #all{
+        width: 660px;
+        height: 639px;
+        position: relative;
+    }
+    .budget-dashboard #income .input input#income-title-input{
+        height: 40px;
+        width : 150px;
+      
+    }
+    
+    .budget-dashboard #income .input input#income-amount-input{
+        height: 40px;
+        width : 110px;
+       
+    }
+    .budget-dashboard #expense .input input#expense-title-input{
+        height: 40px;
+        width : 150px;
+
+    }
+    
+    .budget-dashboard #expense .input input#expense-amount-input{
+        height: 40px;
+        width : 110px;
+ 
+    }
+
 }
