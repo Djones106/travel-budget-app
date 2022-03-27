@@ -26,10 +26,10 @@ const incomeAmount = document.getElementById("income-amount-input");
 // Variables
 let ENTRY_LIST;
 let balance = 0, income = 0, outcome = 0;
-
+const DELETE = "delete", EDIT = "edit";
 // Look for saved date in local storage
 ENTRY_LIST =  JSON.parse(localStorage.getItem("entry_list")) || [];
-const DELETE = "delete", EDIT = "edit";
+updateUI();
 
 //Event Listeners
 
@@ -81,7 +81,9 @@ addExpense.addEventListener("click", function(){
     clearInput ([expenseTitle, expenseAmount]);
 })
 
-
+incomeList.addEventListener("click", deleteOrEdit);
+expenseList.addEventListener("click", deleteOrEdit);
+allList.addEventListener("click", deleteOrEdit);
 
 //Helpers
 function show(element){
@@ -124,6 +126,35 @@ function clearElement(elements){
     })
 }
 
+// Delete or Edit
+function deleteOrEdit(){
+    const targetBtn = event.target;
+    const entry = targetBtn.parentNode;
+    //console.log(entry)
+
+    if(targetBtn.id == DELETE){
+        deleteEntry(entry);
+    }else if (targetBtn.id == EDIT){
+        editEntry(entry);
+    }
+}
+function deleteEntry(entry){
+    ENTRY_LIST.splice(entry.id, 1);
+    updateUI();
+}
+
+function editEntry(entry){
+    let ENTRY = ENTRY_LIST[entry.id];
+
+    if(ENTRY.type == "income"){
+        incomeAmount.value = ENTRY.amount;
+        incomeTitle.value = ENTRY.title;
+    }else if (ENTRY.type == "expense"){
+        expenseAmount.value = ENTRY.amount;
+        expenseTitle.value = ENTRY.title;
+    }
+    deleteEntry(entry);
+}
 
 // Updating balance calculations
 function updateUI(){
@@ -151,8 +182,9 @@ function updateUI(){
             showEntry(allList, entry.type, entry.title, entry.amount, index);
     });
    
-    updateChart (income, outcome);
+    updateChart(income, outcome);
 
+    localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST));
    
 } 
 
@@ -167,5 +199,5 @@ function showEntry (list, type, title, amount, id){
     list.insertAdjacentHTML(position, entry);
 }
 
-// Delete or Edit
+
 
