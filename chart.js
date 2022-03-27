@@ -1,20 +1,20 @@
 const chart = document.querySelector(".chart");
 
-// Create Canvas Element
+// Create Canvas Element//
 const canvas = document.createElement("canvas");
 canvas.width = 50;
 canvas.height = 50;
 
-//Append Canvas to Chart Element
+//Append Canvas to Chart Element//
 chart.appendChild(canvas);
 
-//To Drawing on canvas - context
+//To Drawing on canvas - context//
 const ctx = canvas.getContext("2d");
 
-//Line Width
+//Line Width//
 ctx.lineWidth = 8;
 
-//Circle Radius
+//Circle Radius//
 const R = 20;
 
 function drawCircle(color, ratio, anticlockwise){

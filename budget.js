@@ -1,4 +1,4 @@
-//Select Elements 
+//Select Elements //
 const balanceEl = document.querySelector(".balance .value");
 const incomeTotalEl = document.querySelector(".income-total");
 const outcomeTotalEl = document.querySelector(".outcome-total");
@@ -9,12 +9,12 @@ const incomeList = document.querySelector("#income .list");
 const expenseList = document.querySelector("#expense .list");
 const allList = document.querySelector("#all .list");
 
-// Dashboard Buttons
+// Dashboard Buttons//
 const expenseBtn = document.querySelector(".tab1");
 const incomeBtn = document.querySelector(".tab2");
 const allBtn = document.querySelector(".tab3");
 
-// Input Buttons
+// Input Buttons//
 const addExpense = document.querySelector(".add-expense");
 const expenseTitle = document.getElementById("expense-title-input");
 const expenseAmount = document.getElementById("expense-amount-input");
@@ -23,7 +23,7 @@ const addIncome = document.querySelector(".add-income");
 const incomeTitle = document.getElementById("income-title-input");
 const incomeAmount = document.getElementById("income-amount-input");
 
-// Variables
+// Variables//
 let ENTRY_LIST;
 let balance = 0, income = 0, outcome = 0;
 const DELETE = "delete", EDIT = "edit";
@@ -31,7 +31,7 @@ const DELETE = "delete", EDIT = "edit";
 ENTRY_LIST =  JSON.parse(localStorage.getItem("entry_list")) || [];
 updateUI();
 
-//Event Listeners
+//Event Listeners//
 
 expenseBtn.addEventListener("click", function (){
     active(expenseBtn);
@@ -85,7 +85,7 @@ incomeList.addEventListener("click", deleteOrEdit);
 expenseList.addEventListener("click", deleteOrEdit);
 allList.addEventListener("click", deleteOrEdit);
 
-//Helpers
+//Helpers//
 function show(element){
     element.classList.remove("hide");
 }
@@ -125,8 +125,7 @@ function clearElement(elements){
         elements.innerHTML = "";
     })
 }
-
-// Delete or Edit
+// Delete or Edit//
 function deleteOrEdit(){
     const targetBtn = event.target;
     const entry = targetBtn.parentNode;
@@ -156,23 +155,23 @@ function editEntry(entry){
     deleteEntry(entry);
 }
 
-// Updating balance calculations
+// Updating balance calculations//
 function updateUI(){
     income = calculateTotal("income", ENTRY_LIST);
     outcome = calculateTotal("expense", ENTRY_LIST);
     balance = Math.abs (calculatedBalance(income,outcome));
 
-    //Sign of balance
+    //Sign of balance//
     let sign = (income >= outcome) ? "$" : "-$";
 
-    // Update UI
+    // Update UI//
     balanceEl.innerHTML = `<small>${sign}</small>${balance}`;
     incomeTotalEl.innerHTML = `<small>${sign}</small>${income}`;
     outcomeTotalEl.innerHTML = `<small>${sign}</small>${outcome}`;
 
     clearElement([incomeList, expenseList, allList]);
 
-    //the issue
+    //Entry of Data //
     ENTRY_LIST.forEach((entry, index) => {
         if (entry.type == "income"){
             showEntry(incomeList, entry.type, entry.title, entry.amount, index);
@@ -188,7 +187,7 @@ function updateUI(){
    
 } 
 
-//Showing list elements
+//Showing list elements//
 function showEntry (list, type, title, amount, id){
     const entry = `<li id = "${id}" class = "${type}">
                         <div class = "entry">${title}: $${amount}</div>

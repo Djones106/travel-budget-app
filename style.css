@@ -440,14 +440,11 @@ input[type=number] {
         display: block;
         width: 560px;
         height: 670px;
-
     }
     .budget-container{
         position: absolute;
         width: 560px;
         height: 780px;
-
-
     } 
     .budget-dashboard #income #outcome .input #all{
         width: 660px;
@@ -457,24 +454,18 @@ input[type=number] {
     .budget-dashboard #income .input input#income-title-input{
         height: 40px;
         width : 150px;
-      
     }
-    
     .budget-dashboard #income .input input#income-amount-input{
         height: 40px;
         width : 110px;
-       
     }
     .budget-dashboard #expense .input input#expense-title-input{
         height: 40px;
         width : 150px;
-
     }
-    
     .budget-dashboard #expense .input input#expense-amount-input{
         height: 40px;
         width : 110px;
- 
     }
 
 }
